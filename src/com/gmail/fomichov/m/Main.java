@@ -32,14 +32,25 @@ public class Main {
         // посчитать кол-во повторений числа 5 и вывести в консоль
         int find5 = 0;
         for (int value : data) {
-            if (value == 5){
+            if (value == 5) {
                 find5++;
             }
         }
         System.out.println("В массиве обнаружено " + find5 + " поторений числа 5");
 
 
-        // выводим массив в консоль
+        // вывести в консоль отсортированный массив
+        //Arrays.sort(data);
+
+        for (int i = data.length - 1; i >= 0; i--) {
+            for (int j = 0; j < i; j++) {
+                if (data[j] > data[j + 1]) {
+                    int t = data[j];
+                    data[j] = data[j + 1];
+                    data[j + 1] = t;
+                }
+            }
+        }
         System.out.println(Arrays.toString(data));
 
 
