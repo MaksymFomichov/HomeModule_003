@@ -7,11 +7,27 @@ public class Main {
 
     public static void main(String[] args) {
         System.out.println("Введите размер массива");
-        int data[] = new int[checkInt()];
+//        int data[] = new int[checkInt()];
+//        for (int i = 0; i < data.length; i++) {
+//            System.out.println("Введите " + (1 + i) + " элемент массива");
+//            data[i] = checkInt();
+//        }
+
+        int data[] = {10, 55, 2, 1, 5, 6, 8, 9, 5, 7, 1, 5, 5, 5, 2, 1, 5, 8};
+
+        // ищем максимальное и минимальное значение
+        int maxValue = data[0];
+        int minValue = data[0];
         for (int i = 0; i < data.length; i++) {
-            System.out.println("Введите " + (1 + i) + " элемент массива");
-            data[i] = checkInt();
+            if (data[i] > maxValue) {
+                maxValue = data[i];
+            }
+            if (data[i] < minValue) {
+                minValue = data[i];
+            }
         }
+        System.out.println("Максимальное значение " + maxValue);
+        System.out.println("Минимальное значение " + minValue);
 
 
         // выводим массив в консоль
