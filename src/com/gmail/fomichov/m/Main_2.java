@@ -3,7 +3,7 @@ package com.gmail.fomichov.m;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Main_1 {
+public class Main_2 {
 
     public static void main(String[] args) {
         System.out.println("Введите размер массива");
@@ -36,12 +36,10 @@ public class Main_1 {
                 find5++;
             }
         }
-        System.out.println("В массиве обнаружено " + find5 + " поторений числа 5");
-
+        System.out.println("В массиве обнаружено " + find5 + " повторений числа 5");
 
         // вывести в консоль отсортированный массив
         //Arrays.sort(data);
-
         for (int i = data.length - 1; i >= 0; i--) {
             for (int j = 0; j < i; j++) {
                 if (data[j] > data[j + 1]) {
@@ -53,9 +51,22 @@ public class Main_1 {
         }
         System.out.println(Arrays.toString(data));
 
-
-
+        // вывести в консоль максимальное кол-во повторений чисел в массиве
+        int tempData[] = new int[data.length];
+        int maxTempValue = 0;
+        for (int i = 0; i < data.length; i++) {
+            for (int j = 0; j < data.length; j++) {
+                if (data[i] == data[j]) {
+                    maxTempValue++;
+                }
+            }
+            tempData[i] = maxTempValue;
+            maxTempValue = 0;
+        }
+        findMax(tempData);
     }
+
+
 
     // проверяем на целое число
     private static int checkInt() {
@@ -72,5 +83,16 @@ public class Main_1 {
             }
         }
         return value;
+    }
+
+    // ищем максимальное значение
+    private static void findMax(int[] tempData) {
+        int maxValue = tempData[0];
+        for (int i = 0; i < tempData.length; i++) {
+            if (tempData[i] > maxValue) {
+                maxValue= tempData[i];
+            }
+        }
+        System.out.println("Максимальное кол-во повторений чисел в массиве " + maxValue);
     }
 }

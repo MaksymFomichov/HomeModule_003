@@ -3,17 +3,15 @@ package com.gmail.fomichov.m;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Main {
+public class Main_1 {
 
     public static void main(String[] args) {
         System.out.println("Введите размер массива");
-//        int data[] = new int[checkInt()];
-//        for (int i = 0; i < data.length; i++) {
-//            System.out.println("Введите " + (1 + i) + " элемент массива");
-//            data[i] = checkInt();
-//        }
-
-        int data[] = {10, 55, 2, 1, 5, 6, 8, 9, 5, 7, 1, 5, 5, 5, 2, 1, 5, 8};
+        int data[] = new int[checkInt()];
+        for (int i = 0; i < data.length; i++) {
+            System.out.println("Введите " + (1 + i) + " элемент массива");
+            data[i] = checkInt();
+        }
 
         // ищем максимальное и минимальное значение
         int maxValue = data[0];
@@ -36,12 +34,10 @@ public class Main {
                 find5++;
             }
         }
-        System.out.println("В массиве обнаружено " + find5 + " поторений числа 5");
-
+        System.out.println("В массиве обнаружено " + find5 + " повторений числа 5");
 
         // вывести в консоль отсортированный массив
         //Arrays.sort(data);
-
         for (int i = data.length - 1; i >= 0; i--) {
             for (int j = 0; j < i; j++) {
                 if (data[j] > data[j + 1]) {
@@ -52,8 +48,6 @@ public class Main {
             }
         }
         System.out.println(Arrays.toString(data));
-
-
     }
 
     // проверяем на целое число
