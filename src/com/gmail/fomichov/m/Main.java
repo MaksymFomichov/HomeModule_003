@@ -29,6 +29,15 @@ public class Main {
         System.out.println("Максимальное значение " + maxValue);
         System.out.println("Минимальное значение " + minValue);
 
+        // посчитать кол-во повторений числа 5 и вывести в консоль
+        int find5 = 0;
+        for (int value : data) {
+            if (value == 5){
+                find5++;
+            }
+        }
+        System.out.println("В массиве обнаружено " + find5 + " поторений числа 5");
+
 
         // выводим массив в консоль
         System.out.println(Arrays.toString(data));
