@@ -1,19 +1,26 @@
 package com.gmail.fomichov.m;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main_3 {
 
     public static void main(String[] args) {
-        System.out.println("Введите размер массива");
-//        int data[] = new int[checkInt()];
-//        for (int i = 0; i < data.length; i++) {
-//            System.out.println("Введите " + (1 + i) + " элемент массива");
-//            data[i] = checkInt();
-//        }
-
-        int data[] = {10, 55, 2, 1, 5, 6, 8, 9, 5, 7, 1, 5, 5, 5, 2, 1, 5, 8};
+        System.out.println("Введите элементы массива через пробел");
+        Scanner scanner = new Scanner(System.in);
+        String array = scanner.nextLine();
+        // получаем размер массива
+        int sizeArray = 0;
+        for (String retval : array.split(" ")) {
+            sizeArray++;
+        }
+        int data[] = new int[sizeArray];
+        int temp = 0;
+        for (String retval : array.split(" ")) {
+            data[temp] = Integer.parseInt(retval);
+            temp++;
+        }
 
         // ищем максимальное и минимальное значение
         int maxValue = data[0];
@@ -66,31 +73,12 @@ public class Main_3 {
         findMax(tempData);
     }
 
-
-
-    // проверяем на целое число
-    private static int checkInt() {
-        Scanner sc = new Scanner(System.in);
-        int value;
-        while (true) {
-            try {
-                value = sc.nextInt();
-                sc.nextLine();
-                break;
-            } catch (Exception e) {
-                System.out.println("Только целое число!");
-                sc.nextLine();
-            }
-        }
-        return value;
-    }
-
     // ищем максимальное значение
     private static void findMax(int[] tempData) {
         int maxValue = tempData[0];
         for (int i = 0; i < tempData.length; i++) {
             if (tempData[i] > maxValue) {
-                maxValue= tempData[i];
+                maxValue = tempData[i];
             }
         }
         System.out.println("Максимальное кол-во повторений чисел в массиве " + maxValue);
